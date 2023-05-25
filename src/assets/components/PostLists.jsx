@@ -1,23 +1,18 @@
 import React from 'react'
 import PostListItem from './PostListItem'
-import { useState } from 'react'
-
-const PostLists = (props) =>{
-  const [posts, setPosts] = useState([]);
 
 
-
-  return (
-
-    
-    <div>
-        
-
-       <PostListItem />
+export default function PostLists({posts}){
+  return (    
+    <div className='post-list'>
+       {posts.map((post) => {
+        return (
+          <PostListItem key={post.id} post={post} />
+        )
+      })}
     </div>
   )
 }
 
-export default PostLists
 
   
