@@ -8,6 +8,15 @@ export default function PostListItem({ post }) {
   const [comments, setComments] = useState();
   const [user, setUser] = useState();
 
+
+  const deletePost = () =>{
+    axios.delete(
+      `https://jsonplaceholder.typicode.com/posts/${post.Id}`
+    );
+    const updatedPosts = posts.filter((post) => post.id !== post.id);
+      setPosts(updatedPosts);
+  }
+
   const getComments = () => {
     comments? setComments() : axios
       .get(commentUrl)
@@ -39,8 +48,8 @@ export default function PostListItem({ post }) {
       <h1>{post.title}</h1>
       <p>{post.body}</p>
       <button>Edit</button>
-      <button>Delete</button>
-      <button onClick={getComments}>Show Comments</button>
+      <button onClick={deletePost}>Delete</button>
+      <button onClick={getComments}>{comments?"Hide":"Show"} Comments</button>
       <button onClick={getUser}>{user?"Hide":"Show"} User</button>
 
       {user && (

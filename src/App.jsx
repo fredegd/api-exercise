@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import InputForm from "./components/InputForm";
 import PostLists from "./components/PostLists";
 
 const App = () => {
@@ -15,11 +15,13 @@ const App = () => {
             console.error("Error fetching posts:", error);
           }) 
   }, []);  
+
+
   return (
     <div>
       <h1>Posts</h1>
       
-        {/* <InputForm />*/}
+        <InputForm posts={posts}/>
         <PostLists posts={posts}/> 
     </div>
   );
