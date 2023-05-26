@@ -75,7 +75,7 @@ export default function PostListItem({ post }) {
             <p>Website: {user.website}</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={getUser}>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
               Close
             </Button>
           </Modal.Footer>
