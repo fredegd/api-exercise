@@ -5,7 +5,8 @@ import { useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import {posts, setPosts} from '../App'
+import '../App.css';
+//
 //
 //
 //
@@ -27,13 +28,8 @@ export default function InputForm({posts, setPosts}){
 
     return(
       <>
-      <Container className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+      <Container className="col-12 col-sm-10 col-md-9 col-lg-7 col-xl-5 rounded-5 border border-light border-3">
       <Form onSubmit={createPost}>
-      <Form.Group className="mb-3" controlId="formBasicText">
-        <Form.Text className="text-muted">
-          Share with the World what are you thinking today
-        </Form.Text>
-       </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicText" >
           <Form.Label>Title</Form.Label>
           <Form.Control type="text" placeholder="Enter The Title"  onChange={(e) => setTitle(e.target.value)}  />
@@ -50,8 +46,8 @@ export default function InputForm({posts, setPosts}){
         </Form.Group>
 
       
-      <Button variant="primary" type="submit">
-        Submit Post
+      <Button variant="primary" type="submit" className="border border-light border-1">
+      <i class="bi bi-send-fill fs-4 "></i>
       </Button>
     </Form>
     </Container>

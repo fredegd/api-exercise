@@ -19,8 +19,12 @@ const App = () => {
 
 
   return (
-    <div>
-      <h1>Posts</h1>
+    <div className="App">
+      <h1 className="bg-light display-2  rounded-4 px-5">
+        <i class="bi bi-balloon-fill display-1">
+          </i> 
+          FAKE POST 
+          </h1>
       
         <InputForm posts={posts} setPosts={setPosts}/>
         <PostLists posts={posts}/> 
