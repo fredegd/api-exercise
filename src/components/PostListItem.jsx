@@ -50,7 +50,8 @@ export default function PostListItem({ post }) {
 
   return (
     <div>
-      
+    <Container className="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-6">
+
       <h1>{post.title}</h1>
       <p>{post.body}</p>
       <button>Edit</button>
@@ -79,6 +80,7 @@ export default function PostListItem({ post }) {
           </ul>
         </div>
       )}
+      </Container>
     </div>
   );
 }

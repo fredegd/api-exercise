@@ -3,6 +3,7 @@ import axios from "axios";
 import InputForm from "./components/InputForm";
 import PostLists from "./components/PostLists";
 
+import './App.css';
 const App = () => {
   const [posts, setPosts] = useState([]);
   
@@ -21,7 +22,7 @@ const App = () => {
     <div>
       <h1>Posts</h1>
       
-        <InputForm posts={posts}/>
+        <InputForm posts={posts} setPosts={setPosts}/>
         <PostLists posts={posts}/> 
     </div>
   );
