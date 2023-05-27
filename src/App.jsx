@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="bg-light display-2  rounded-4 px-5">
+      <h1 className=" display-2  rounded-4 px-5 fake-post-font">
         <i className="bi bi-balloon-fill display-1">
           </i> 
           FAKE POST 

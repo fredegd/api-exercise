@@ -46,3 +46,8 @@
   line-height: 3em;
   text-decoration: none;
 }
+
+.fake-post-font { 
+  font-family: 'Train One', cursive;
+  font-weight:bolder;
+}

@@ -20,15 +20,22 @@ export default function PostListItem({ post }) {
   const [userName, setUserName] = useState();
 
 
+
   const deletePost = () => {
-    axios
-      .delete(`https://jsonplaceholder.typicode.com/posts/${post.id}`)
-      .then(() => {
-        deletePost(post.id);
+    axios .delete(`https://jsonplaceholder.typicode.com/posts/${post.id}`)
+      .then((response) => {
+        console.log("post deleted successfully:", response.data); 
+        deleteContainer(post.id); // delete a container with its own id. 
       })
       .catch((error) => console.error("Error deleting post:", error));
   };
- 
+  const deleteContainer = (containerId) => {
+    const container = document.getElementById(containerId);
+    if (container) {
+      container.remove();
+    }
+  };
+
 
 
   const getComments = () => {
@@ -47,7 +54,6 @@ export default function PostListItem({ post }) {
         });
     }
   };
-
 
 
   const getUser = () => {
@@ -87,7 +93,7 @@ export default function PostListItem({ post }) {
 
   return (
     <div>
-      <Container className="container rounded-5 border border-light border-3 ">
+         <Container id={post.id} className="container rounded-5 border border-light border-3">
       {userName && (
           <a className="userName userNameDiv" href="#" onClick={getUser}>
           <i className="bi bi-person-square p-3"></i> {userName.name}
@@ -96,7 +102,15 @@ export default function PostListItem({ post }) {
       <h3>{post.title}</h3>
       <p>{post.body}</p>
       <Button className="m-3 border-light" ><i className="bi bi-pencil-square fs-4"></i></Button>
-      <Button className="m-3 border-light"onClick={deletePost}><i className="bi bi-trash3-fill fs-4"></i></Button>
+
+
+
+
+
+      <Button className="m-3 border-light" onClick={deletePost}><i className="bi bi-trash3-fill fs-4"></i></Button>
+
+
+
 
       <Button className="m-3 border-light"variant="primary" onClick={getComments}><i className="bi bi-chat-text-fill fs-4"></i></Button>
       {/* <Button className="m-3 border-light"onClick={getUser}><i className="bi bi-person-fill-exclamation fs-4"></i></Button> */}
